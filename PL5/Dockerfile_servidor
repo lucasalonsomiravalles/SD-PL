@@ -1,0 +1,19 @@
+# Usa una imagen base de Python
+FROM python:3.9
+
+# Establece el directorio de trabajo en el contenedor
+WORKDIR /app
+
+# Copia los archivos necesarios al contenedor
+COPY servidor_proc.py /app
+
+# Instala las dependencias necesarias
+RUN pip install gunicorn
+RUN pip install threading
+RUN pip install redis
+
+
+
+# Comando para ejecutar tu script Python
+# El "-u" facilita que los prints de tu código se muestren por pantalla
+CMD ["python3", "-u", "servidor_proc.py"]
