@@ -1,0 +1,39 @@
+Comandos para lanzar los servidores:
+
+------------------------------------------------
+
+docker run -d --name con1 --network pruebas -v $(pwd):/app python:3.7 python3 /app/sd-pl2-g3/PL1_Parte_1/udp_servidor6_broadcast.py
+
+docker run -d --name con2 --network pruebas -v $(pwd):/app python:3.7 python3 /app/sd-pl2-g3/PL1_Parte_1/udp_servidor6_broadcast.py
+
+docker run -d --name con3 --network pruebas -v $(pwd):/app python:3.7 python3 /app/sd-pl2-g3/PL1_Parte_1/udp_servidor6_broadcast.py
+
+
+------------------------------------------------
+
+Comandos intermedios:
+
+------------------------------------------------
+
+docker ps
+
+docker exec -it con1 bash
+
+apt-get update
+
+apt-get install iproute2 -y
+
+ip addr
+
+(Mi IP de broadcast 172.18.255.255)
+
+exit
+------------------------------------------------
+
+Comando para lanzar el cliente:
+
+------------------------------------------------
+
+docker run -it --name cliente --network pruebas -v $(pwd):/app python:3.7 python3 /app/sd-pl2-g3/PL1_Parte_1/udp_cliente6_broadcast.py 172.18.255.255
+
+(IP respuesta 172.18.0.2)
