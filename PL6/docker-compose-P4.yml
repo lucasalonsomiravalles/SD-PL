@@ -1,0 +1,13 @@
+version: '3'
+services:
+  tarea_app_flask:
+    image: tarea_app:latest
+    container_name: tarea_app_flask
+    ports:
+      - "5000:5000"
+    networks:
+      - pruebas
+
+networks:
+  pruebas:
+    driver: bridge
